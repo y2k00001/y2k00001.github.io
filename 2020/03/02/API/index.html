@@ -1,0 +1,416 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>接口文档示例 | 炽热的五月</title><meta name="description" content="接口文档示例"><meta name="keywords" content="api webrtc"><meta name="author" content="neo"><meta name="copyright" content="neo"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://hm.baidu.com"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="接口文档示例"><meta name="twitter:description" content="接口文档示例"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png"><meta property="og:type" content="article"><meta property="og:title" content="接口文档示例"><meta property="og:url" content="http://blog.neo-cloud.cn/2020/03/02/API/"><meta property="og:site_name" content="炽热的五月"><meta property="og:description" content="接口文档示例"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://blog.neo-cloud.cn/2020/03/02/API/"><link rel="next" title="Hello World" href="http://blog.neo-cloud.cn/2020/02/28/hello-world/"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?eac5c0447916ce0c5ab8c44501088334";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"http://blog.neo-cloud.cn/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  isHome: false,
+  isPost: true
+  
+}</script><meta name="generator" content="Hexo 4.2.0"></head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">炽热的五月</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 娱乐</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="http://img.neo-cloud.cn/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">2</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">1</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 娱乐</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><div class="sidebar-toc__content"><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#和湛WebRTC平台接口文档-v1-0-0"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">和湛WebRTC平台接口文档 v1.0.0</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#1-概述"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">1 概述</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#2-接口规范"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">2 接口规范</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-1-通信协议"><span class="toc_mobile_items-number">1.2.1.</span> <span class="toc_mobile_items-text">2.1 通信协议</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-2-请求方法"><span class="toc_mobile_items-number">1.2.2.</span> <span class="toc_mobile_items-text">2.2 请求方法</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-3-字符编码"><span class="toc_mobile_items-number">1.2.3.</span> <span class="toc_mobile_items-text">2.3 字符编码</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-4-IP白名单限制"><span class="toc_mobile_items-number">1.2.4.</span> <span class="toc_mobile_items-text">2.4 IP白名单限制</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-5-请求报文结构"><span class="toc_mobile_items-number">1.2.5.</span> <span class="toc_mobile_items-text">2.5 请求报文结构</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#2-5-1-参数说明"><span class="toc_mobile_items-number">1.2.5.1.</span> <span class="toc_mobile_items-text">2.5.1 参数说明</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#2-5-2-请求体明文结构说明"><span class="toc_mobile_items-number">1.2.5.2.</span> <span class="toc_mobile_items-text">2.5.2 请求体明文结构说明</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#2-5-3-入参中的data数据加密"><span class="toc_mobile_items-number">1.2.5.3.</span> <span class="toc_mobile_items-text">2.5.3 入参中的data数据加密</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#2-5-4-入参中的sign签名生成"><span class="toc_mobile_items-number">1.2.5.4.</span> <span class="toc_mobile_items-text">2.5.4 入参中的sign签名生成</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-5-5-加密及签名示例"><span class="toc_mobile_items-number">1.2.6.</span> <span class="toc_mobile_items-text">2.5.5 加密及签名示例</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-5-6-请求报文示例"><span class="toc_mobile_items-number">1.2.7.</span> <span class="toc_mobile_items-text">2.5.6 请求报文示例</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-6-响应报文结构"><span class="toc_mobile_items-number">1.2.8.</span> <span class="toc_mobile_items-text">2.6 响应报文结构</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-6-1-响应报文结构说明"><span class="toc_mobile_items-number">1.2.9.</span> <span class="toc_mobile_items-text">2.6.1 响应报文结构说明</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#2-6-2-响应报文示例"><span class="toc_mobile_items-number">1.2.10.</span> <span class="toc_mobile_items-text">2.6.2 响应报文示例</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#3-接口使用流程指引"><span class="toc_mobile_items-number">1.3.</span> <span class="toc_mobile_items-text">3 接口使用流程指引</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#4-接口定义"><span class="toc_mobile_items-number">1.4.</span> <span class="toc_mobile_items-text">4 接口定义</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#4-1-注册房间-H5"><span class="toc_mobile_items-number">1.4.1.</span> <span class="toc_mobile_items-text">4.1  注册房间(H5)</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#4-1-1-请求"><span class="toc_mobile_items-number">1.4.1.1.</span> <span class="toc_mobile_items-text">4.1.1 请求</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#4-1-2-响应"><span class="toc_mobile_items-number">1.4.1.2.</span> <span class="toc_mobile_items-text">4.1.2 响应</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#4-2-注册房间-小程序码"><span class="toc_mobile_items-number">1.4.2.</span> <span class="toc_mobile_items-text">4.2 注册房间(小程序码)</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#4-2-1-请求"><span class="toc_mobile_items-number">1.4.2.1.</span> <span class="toc_mobile_items-text">4.2.1 请求</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#4-2-2-响应"><span class="toc_mobile_items-number">1.4.2.2.</span> <span class="toc_mobile_items-text">4.2.2 响应</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#4-3-进入房间"><span class="toc_mobile_items-number">1.4.3.</span> <span class="toc_mobile_items-text">4.3 进入房间</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#4-3-1-请求"><span class="toc_mobile_items-number">1.4.3.1.</span> <span class="toc_mobile_items-text">4.3.1 请求</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#4-3-2-响应"><span class="toc_mobile_items-number">1.4.3.2.</span> <span class="toc_mobile_items-text">4.3.2 响应</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#5-页面定义"><span class="toc_mobile_items-number">1.5.</span> <span class="toc_mobile_items-text">5 页面定义</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#5-1-H5页面"><span class="toc_mobile_items-number">1.5.1.</span> <span class="toc_mobile_items-text">5.1 H5页面</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#5-2-小程序页面"><span class="toc_mobile_items-number">1.5.2.</span> <span class="toc_mobile_items-text">5.2 小程序页面</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#6-附录"><span class="toc_mobile_items-number">1.6.</span> <span class="toc_mobile_items-text">6 附录</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#6-1-枚举值"><span class="toc_mobile_items-number">1.6.1.</span> <span class="toc_mobile_items-text">6.1 枚举值</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#6-1-1-code"><span class="toc_mobile_items-number">1.6.1.1.</span> <span class="toc_mobile_items-text">6.1.1 code</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#6-1-1-error-code"><span class="toc_mobile_items-number">1.6.1.2.</span> <span class="toc_mobile_items-text">6.1.1 error_code</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#和湛WebRTC平台接口文档-v1-0-0"><span class="toc-number">1.</span> <span class="toc-text">和湛WebRTC平台接口文档 v1.0.0</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-number">1.1.</span> <span class="toc-text">1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接口规范"><span class="toc-number">1.2.</span> <span class="toc-text">2 接口规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-通信协议"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 通信协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-请求方法"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 请求方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-字符编码"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 字符编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-IP白名单限制"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 IP白名单限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-请求报文结构"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 请求报文结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-1-参数说明"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">2.5.1 参数说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-2-请求体明文结构说明"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">2.5.2 请求体明文结构说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-3-入参中的data数据加密"><span class="toc-number">1.2.5.3.</span> <span class="toc-text">2.5.3 入参中的data数据加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-4-入参中的sign签名生成"><span class="toc-number">1.2.5.4.</span> <span class="toc-text">2.5.4 入参中的sign签名生成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-5-加密及签名示例"><span class="toc-number">1.2.6.</span> <span class="toc-text">2.5.5 加密及签名示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-6-请求报文示例"><span class="toc-number">1.2.7.</span> <span class="toc-text">2.5.6 请求报文示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-响应报文结构"><span class="toc-number">1.2.8.</span> <span class="toc-text">2.6 响应报文结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-1-响应报文结构说明"><span class="toc-number">1.2.9.</span> <span class="toc-text">2.6.1 响应报文结构说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-2-响应报文示例"><span class="toc-number">1.2.10.</span> <span class="toc-text">2.6.2 响应报文示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-接口使用流程指引"><span class="toc-number">1.3.</span> <span class="toc-text">3 接口使用流程指引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-接口定义"><span class="toc-number">1.4.</span> <span class="toc-text">4 接口定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-注册房间-H5"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1  注册房间(H5)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1-请求"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">4.1.1 请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2-响应"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">4.1.2 响应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-注册房间-小程序码"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 注册房间(小程序码)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-请求"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">4.2.1 请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-响应"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">4.2.2 响应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-进入房间"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3 进入房间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-请求"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">4.3.1 请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-响应"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">4.3.2 响应</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-页面定义"><span class="toc-number">1.5.</span> <span class="toc-text">5 页面定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-H5页面"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 H5页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-小程序页面"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 小程序页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-附录"><span class="toc-number">1.6.</span> <span class="toc-text">6 附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-枚举值"><span class="toc-number">1.6.1.</span> <span class="toc-text">6.1 枚举值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-1-code"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">6.1.1 code</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-1-error-code"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">6.1.1 error_code</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><main id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png)"><div id="post-info"><div id="post-title"><div class="posttitle">接口文档示例</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 发表于 2020-03-02<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> 更新于 2020-03-02</time><span class="post-meta__separator">|</span><span><i class="fa fa-inbox post-meta__icon fa-fw" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/php/">php</a></span><div class="post-meta-wordcount"><div class="post-meta-pv-cv"><span><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i>阅读量:</span><span id="busuanzi_value_page_pv"></span><span class="post-meta__separator">|</span><i class="fa fa-comment-o post-meta__icon fa-fw" aria-hidden="true"></i><span>评论数:</span><a href="/2020/03/02/API/#post-comment"><span class="disqus-comment-count" data-disqus-url="http://blog.neo-cloud.cn/2020/03/02/API/"></span></a></div></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><html><head></head><body><h1 id="和湛WebRTC平台接口文档-v1-0-0"><a href="#和湛WebRTC平台接口文档-v1-0-0" class="headerlink" title="和湛WebRTC平台接口文档 v1.0.0"></a>和湛WebRTC平台接口文档 v1.0.0</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><p>该文档用于描述和湛WebRTC平台为第三方提供webrtc服务的相关接口</p>
+<h2 id="2-接口规范"><a href="#2-接口规范" class="headerlink" title="2 接口规范"></a>2 接口规范</h2><h3 id="2-1-通信协议"><a href="#2-1-通信协议" class="headerlink" title="2.1 通信协议"></a>2.1 通信协议</h3><p>HTTPS协议</p>
+<h3 id="2-2-请求方法"><a href="#2-2-请求方法" class="headerlink" title="2.2 请求方法"></a>2.2 请求方法</h3><p>所有接口只支持GET或者POST方法</p>
+<h3 id="2-3-字符编码"><a href="#2-3-字符编码" class="headerlink" title="2.3 字符编码"></a>2.3 字符编码</h3><p>HTTP通讯及报文均采用UTF-8字符集编码格式。</p>
+<h3 id="2-4-IP白名单限制"><a href="#2-4-IP白名单限制" class="headerlink" title="2.4 IP白名单限制"></a>2.4 IP白名单限制</h3><p>要调用接口的第三方提供IP，由平台添加入进白名单</p>
+<h3 id="2-5-请求报文结构"><a href="#2-5-请求报文结构" class="headerlink" title="2.5 请求报文结构"></a>2.5 请求报文结构</h3><h4 id="2-5-1-参数说明"><a href="#2-5-1-参数说明" class="headerlink" title="2.5.1 参数说明"></a>2.5.1 参数说明</h4><p>Headers(http请求头)：<code>Content-Type:application/json;charset=UTF-8</code></p>
+<p>body(请求体)：其明文为每次请求的具体参数，采用 JSON 格式</p>
+<h4 id="2-5-2-请求体明文结构说明"><a href="#2-5-2-请求体明文结构说明" class="headerlink" title="2.5.2 请求体明文结构说明"></a>2.5.2 请求体明文结构说明</h4><p>请求body采用JSON格式，其中的参数节点：</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">类型</th>
+<th align="left">是否必填</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">hosp_id</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">用户登录后token，没有登录则为空字符串</td>
+</tr>
+<tr>
+<td align="left">data</td>
+<td align="left">string</td>
+<td align="left">N</td>
+<td align="left">每个接口的参数json 编码成字符串后再加密形成的字符串</td>
+</tr>
+<tr>
+<td align="left">tmestamp</td>
+<td align="left">int</td>
+<td align="left">Y</td>
+<td align="left">当前UNIX时间戳</td>
+</tr>
+<tr>
+<td align="left">sign</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">请求签名</td>
+</tr>
+</tbody></table>
+<h4 id="2-5-3-入参中的data数据加密"><a href="#2-5-3-入参中的data数据加密" class="headerlink" title="2.5.3 入参中的data数据加密"></a>2.5.3 入参中的data数据加密</h4><ol>
+<li>将入参中的data json编码成字符串</li>
+<li>调用openssl_encrypt方法加密data生成的字符串（默认使用AES-128-ECB算法，加密key使用平台分配的token）；</li>
+<li>推荐使用平台提供加密类加密数据</li>
+</ol>
+<h4 id="2-5-4-入参中的sign签名生成"><a href="#2-5-4-入参中的sign签名生成" class="headerlink" title="2.5.4 入参中的sign签名生成"></a>2.5.4 入参中的sign签名生成</h4><ol>
+<li>将请求参数数组(hosp_id,加密后的data，timestamp)升序排序</li>
+<li>拼接字符串（空字符串，数字0，null,字符0不参与拼接）</li>
+<li>将平台分配的hosp_id、拼接的参数字符串、平台分配的token拼接后使用sha256算法算出hash值，</li>
+<li>将生成的hash值作为签名放入入参数组中</li>
+</ol>
+<h3 id="2-5-5-加密及签名示例"><a href="#2-5-5-加密及签名示例" class="headerlink" title="2.5.5 加密及签名示例"></a>2.5.5 加密及签名示例</h3><p>php版：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">php</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">$hosp_id = xxx;<span class="comment">// </span></span><br><span class="line">$token=<span class="string">'14def8xxxxxxxxxxxxxxxx7abe8e9'</span>;<span class="comment">//</span></span><br><span class="line">$timestamp = time ();</span><br><span class="line"></span><br><span class="line">$input_data = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'order_no'</span>  =>  <span class="string">'2019xxxxxxxxxxxxxxxx33738'</span>,</span><br><span class="line">    <span class="string">'refund_no'</span>=><span class="string">'r_20190xxxxxxxxxxxxx33738'</span>,</span><br><span class="line">    <span class="string">'refund_fee'</span>=><span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'pay_type'</span>=><span class="string">'wx'</span>,</span><br><span class="line">    <span class="string">'op_remark'</span> =><span class="string">'test'</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$json=<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'hosp_id'</span>=>$hosp_id,</span><br><span class="line">    <span class="string">'data'</span>=>encrypt_data ($input_data,$token),</span><br><span class="line">    <span class="string">'timestamp'</span>=>$timestamp</span><br><span class="line">);</span><br><span class="line">$json[<span class="string">'sign'</span>] = generate_sign($hosp_id,$token);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generate_sign</span><span class="params">($hosp_id,$token)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ksort($arr);</span><br><span class="line">    $str = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">foreach</span>($arr <span class="keyword">as</span> $k=>$v){</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">empty</span>($v)) $str.=$k.<span class="string">'='</span>.$v.<span class="string">'&'</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> $sign = hash (<span class="string">'sha256'</span>,$hosp_id.$str.$token);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encrypt_data</span><span class="params">($data,$key)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    $obj = <span class="keyword">new</span> OpensslAES($key);</span><br><span class="line">    $str = json_encode ($data,JSON_UNESCAPED_UNICODE);</span><br><span class="line">    <span class="keyword">return</span> $obj->encrypt ($str);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">decrypt_data</span><span class="params">($str,$key)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    $obj = <span class="keyword">new</span> OpensslAES($key);</span><br><span class="line">    <span class="keyword">return</span> $obj->decrypt  ($str);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OpensslAES</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">    <span class="keyword">protected</span> $method;</span><br><span class="line">    <span class="keyword">protected</span> $secret_key;</span><br><span class="line">    <span class="keyword">protected</span> $iv;</span><br><span class="line">    <span class="keyword">protected</span> $options;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($key, $method = <span class="string">'AES-128-ECB'</span>, $options = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">$this</span>->secret_key = $key;</span><br><span class="line">        <span class="keyword">$this</span>->method = $method;</span><br><span class="line">        $ivlen = openssl_cipher_iv_length($method);</span><br><span class="line">        <span class="keyword">$this</span>->iv = openssl_random_pseudo_bytes($ivlen);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">$this</span>->options = $options;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">encrypt</span><span class="params">($data)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">return</span> openssl_encrypt($data, <span class="keyword">$this</span>->method, <span class="keyword">$this</span>->secret_key, <span class="keyword">$this</span>->options, <span class="keyword">$this</span>->iv);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">decrypt</span><span class="params">($data)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">return</span> openssl_decrypt($data, <span class="keyword">$this</span>->method, <span class="keyword">$this</span>->secret_key, <span class="keyword">$this</span>->options, <span class="keyword">$this</span>->iv);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+<h3 id="2-5-6-请求报文示例"><a href="#2-5-6-请求报文示例" class="headerlink" title="2.5.6 请求报文示例"></a>2.5.6 请求报文示例</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"header"</span>:{</span><br><span class="line">        <span class="attr">"Content-Type"</span>: <span class="string">"application/json"</span></span><br><span class="line">    },</span><br><span class="line">    <span class="attr">"body"</span>:{</span><br><span class="line">        <span class="attr">"hosp_id"</span>:<span class="string">"18520322032aa2"</span>,</span><br><span class="line">        <span class="attr">"data"</span>:<span class="string">"acb000000"</span>,</span><br><span class="line">        <span class="attr">"timestamp"</span>:<span class="number">12312312312</span>,</span><br><span class="line">        <span class="attr">"sign"</span>:<span class="string">"dasqw31eqweqwe1eqawe_12awe"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+<h3 id="2-6-响应报文结构"><a href="#2-6-响应报文结构" class="headerlink" title="2.6 响应报文结构"></a>2.6 响应报文结构</h3><h3 id="2-6-1-响应报文结构说明"><a href="#2-6-1-响应报文结构说明" class="headerlink" title="2.6.1 响应报文结构说明"></a>2.6.1 响应报文结构说明</h3><p>所有接口响应均采用JSON格式，如无特殊说明，每次请求的返回值中，都包含下列字段：</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">类型</th>
+<th align="left">是否必填</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">code</td>
+<td align="left">int</td>
+<td align="left">Y</td>
+<td align="left">请求响应码，代码定义请见“附录 枚举值 code响应码说明”</td>
+</tr>
+<tr>
+<td align="left">message</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">响应描述</td>
+</tr>
+<tr>
+<td align="left">error_code</td>
+<td align="left">int</td>
+<td align="left">Y</td>
+<td align="left">业务结果码,代码定义请见“附录 枚举值 error_code 业务结果码说明</td>
+</tr>
+<tr>
+<td align="left">req_url</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">请求接口地址</td>
+</tr>
+<tr>
+<td align="left">data</td>
+<td align="left">array</td>
+<td align="left">N</td>
+<td align="left">每个接口特有的参数，详见每个接口定义</td>
+</tr>
+<tr>
+<td align="left">req_id</td>
+<td align="left">int</td>
+<td align="left">N</td>
+<td align="left">请求接口地址</td>
+</tr>
+</tbody></table>
+<h3 id="2-6-2-响应报文示例"><a href="#2-6-2-响应报文示例" class="headerlink" title="2.6.2 响应报文示例"></a>2.6.2 响应报文示例</h3><ol>
+<li><p>请求成功响应示例</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"success"</span>,</span><br><span class="line">    <span class="attr">"error_code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"data"</span>: <span class="string">"waqvw6xMsv7VSctCLth8ut8LRQyHHeNDwCLMKvHBBCWXNYSL7vffFMAm4w=="</span>,</span><br><span class="line">    <span class="attr">"timestamp"</span>: <span class="number">1570782343</span>,</span><br><span class="line">    <span class="attr">"req_url"</span>: <span class="string">"/Api/RefundCenter/order_query"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>请求错误响应示例</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"hzpay:接口请求错误:ORDER_NO ERROR"</span>,</span><br><span class="line">    <span class="attr">"error_code"</span>: <span class="number">5002</span>,</span><br><span class="line">    <span class="attr">"req_url"</span>: <span class="string">"/Api/RefundCenter/order_query"</span>,</span><br><span class="line">    <span class="attr">"req_id"</span>: <span class="literal">null</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+</li>
+</ol>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"ip not in ip_white"</span>,</span><br><span class="line">    <span class="attr">"error_code"</span>: <span class="number">3001</span>,</span><br><span class="line">    <span class="attr">"req_url"</span>: <span class="string">"/Api/WebRTC/room_create"</span>,</span><br><span class="line">    <span class="attr">"req_id"</span>: <span class="literal">null</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+<h2 id="3-接口使用流程指引"><a href="#3-接口使用流程指引" class="headerlink" title="3 接口使用流程指引"></a>3 接口使用流程指引</h2><p><a href="./doc/guide.jpg" data-fancybox="group" data-caption="avatar" class="fancybox"><img alt="avatar" data-src="./doc/guide.jpg" class="lazyload" title="avatar"></a></p>
+<h2 id="4-接口定义"><a href="#4-接口定义" class="headerlink" title="4 接口定义"></a>4 接口定义</h2><ul>
+<li><strong>测试环境域名：</strong> <a href="https://xxxx.com.cn" target="_blank" rel="noopener">https://xxxx.com.cn</a> </li>
+<li><strong>正式环境域名：</strong> https://</li>
+</ul>
+<h3 id="4-1-注册房间-H5"><a href="#4-1-注册房间-H5" class="headerlink" title="4.1  注册房间(H5)"></a>4.1  注册房间(H5)</h3><ul>
+<li><strong>接口说明：</strong> </li>
+<li><strong>接口地址：</strong> /Api/WebRTC/room_create</li>
+</ul>
+<h4 id="4-1-1-请求"><a href="#4-1-1-请求" class="headerlink" title="4.1.1 请求"></a>4.1.1 请求</h4><table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">类型</th>
+<th align="left">是否必填</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">userID</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">调用方的用户标识，保证唯一</td>
+</tr>
+<tr>
+<td align="left">roomID</td>
+<td align="left">string</td>
+<td align="left">N</td>
+<td align="left">注册进入的房间ID，如果不传入就由平台生成和返回，</td>
+</tr>
+</tbody></table>
+<p>示例:</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"userID"</span>:<span class="string">"neo112311113e"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+<h4 id="4-1-2-响应"><a href="#4-1-2-响应" class="headerlink" title="4.1.2 响应"></a>4.1.2 响应</h4><table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">类型</th>
+<th align="left">是否必填</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">tID</td>
+<td align="left">int</td>
+<td align="left">Y</td>
+<td align="left">换取拉去音视频参数的和进入房间的令牌id</td>
+</tr>
+<tr>
+<td align="left">userID</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">调用方的用户标识，保证唯一</td>
+</tr>
+<tr>
+<td align="left">roomID</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">注册进入的房间ID，如果不传入就由平台生成和返回，</td>
+</tr>
+</tbody></table>
+<p>示例:</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"error_code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"data"</span>: {</span><br><span class="line">        <span class="attr">"tID"</span>: <span class="string">"1165"</span>,</span><br><span class="line">        <span class="attr">"userID"</span>: <span class="string">"neo112311113e"</span>,</span><br><span class="line">        <span class="attr">"roomID"</span>: <span class="number">75803</span></span><br><span class="line">    },</span><br><span class="line">    <span class="attr">"req_url"</span>: <span class="string">"/Api/WebRTC/room_create"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="4-2-注册房间-小程序码"><a href="#4-2-注册房间-小程序码" class="headerlink" title="4.2 注册房间(小程序码)"></a>4.2 注册房间(小程序码)</h3><ul>
+<li><strong>接口说明：</strong> </li>
+<li><strong>接口地址：</strong> /Api/WebRTC/room_qr_code</li>
+</ul>
+<h4 id="4-2-1-请求"><a href="#4-2-1-请求" class="headerlink" title="4.2.1 请求"></a>4.2.1 请求</h4><table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">类型</th>
+<th align="left">是否必填</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">userID</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">调用方的用户标识，保证唯一</td>
+</tr>
+<tr>
+<td align="left">roomID</td>
+<td align="left">string</td>
+<td align="left">N</td>
+<td align="left">注册进入的房间ID，如果不传入就由平台生成和返回，</td>
+</tr>
+</tbody></table>
+<h4 id="4-2-2-响应"><a href="#4-2-2-响应" class="headerlink" title="4.2.2 响应"></a>4.2.2 响应</h4><table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">类型</th>
+<th align="left">是否必填</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">tID</td>
+<td align="left">int</td>
+<td align="left">Y</td>
+<td align="left">换取拉去音视频参数的和进入房间的令牌id</td>
+</tr>
+<tr>
+<td align="left">qrImg</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">生成的小程序码图片地址，如:xxx.com/upload/xxxx.png</td>
+</tr>
+</tbody></table>
+<h3 id="4-3-进入房间"><a href="#4-3-进入房间" class="headerlink" title="4.3 进入房间"></a>4.3 进入房间</h3><ul>
+<li><strong>接口说明：</strong> </li>
+<li><strong>接口地址：</strong> /Api/WebRTC/room_enter</li>
+</ul>
+<h4 id="4-3-1-请求"><a href="#4-3-1-请求" class="headerlink" title="4.3.1 请求"></a>4.3.1 请求</h4><table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">类型</th>
+<th align="left">是否必填</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">tID</td>
+<td align="left">int</td>
+<td align="left">Y</td>
+<td align="left">换取拉去音视频参数的和进入房间的令牌id</td>
+</tr>
+</tbody></table>
+<p>示例:</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"tID"</span>:<span class="number">1165</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h4 id="4-3-2-响应"><a href="#4-3-2-响应" class="headerlink" title="4.3.2 响应"></a>4.3.2 响应</h4><table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">类型</th>
+<th align="left">是否必填</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">tID</td>
+<td align="left">int</td>
+<td align="left">Y</td>
+<td align="left">换取拉去音视频参数的和进入房间的令牌id</td>
+</tr>
+<tr>
+<td align="left">qr_img</td>
+<td align="left">string</td>
+<td align="left">Y</td>
+<td align="left">生成的小程序码图片地址，如:xxx.com/upload/xxxx.png</td>
+</tr>
+</tbody></table>
+<p>示例:</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"error_code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"data"</span>: {</span><br><span class="line">        <span class="attr">"userID"</span>: <span class="string">"neo112311113e"</span>,</span><br><span class="line">        <span class="attr">"userSig"</span>: <span class="string">"eJwtjMkOgkAQRP9lrhrSPTCyJBxcEsVw0rlwxNBiQ1gyEDEa-90JUrd6VXkfodOr8y..."</span>,</span><br><span class="line">        <span class="attr">"sdkAppID"</span>: <span class="string">"1400243480"</span>,</span><br><span class="line">        <span class="attr">"roomID"</span>: <span class="number">75803</span></span><br><span class="line">    },</span><br><span class="line">    <span class="attr">"req_url"</span>: <span class="string">"/Api/WebRTC/room_enter"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+
+<h2 id="5-页面定义"><a href="#5-页面定义" class="headerlink" title="5 页面定义"></a>5 页面定义</h2><h3 id="5-1-H5页面"><a href="#5-1-H5页面" class="headerlink" title="5.1 H5页面"></a>5.1 H5页面</h3><h3 id="5-2-小程序页面"><a href="#5-2-小程序页面" class="headerlink" title="5.2 小程序页面"></a>5.2 小程序页面</h3><h2 id="6-附录"><a href="#6-附录" class="headerlink" title="6 附录"></a>6 附录</h2><h3 id="6-1-枚举值"><a href="#6-1-枚举值" class="headerlink" title="6.1 枚举值"></a>6.1 枚举值</h3><h4 id="6-1-1-code"><a href="#6-1-1-code" class="headerlink" title="6.1.1 code"></a>6.1.1 code</h4><table>
+<thead>
+<tr>
+<th align="left">响应码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">成功</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">失败</td>
+</tr>
+</tbody></table>
+<h4 id="6-1-1-error-code"><a href="#6-1-1-error-code" class="headerlink" title="6.1.1 error_code"></a>6.1.1 error_code</h4><table>
+<thead>
+<tr>
+<th align="left">响应码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">300x</td>
+<td align="left">接口请求错误</td>
+</tr>
+<tr>
+<td align="left"> 3001</td>
+<td align="left">请求参数错误</td>
+</tr>
+<tr>
+<td align="left">500x</td>
+<td align="left">第三方接口调用错误</td>
+</tr>
+<tr>
+<td align="left"> 5031</td>
+<td align="left">请求微信小程序API异常</td>
+</tr>
+</tbody></table>
+</body></html></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">neo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.neo-cloud.cn/2020/03/02/API/">http://blog.neo-cloud.cn/2020/03/02/API/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.neo-cloud.cn">炽热的五月</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/api-webrtc/">api webrtc    </a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg" alt="微信"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg" alt="支付宝"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/02/28/hello-world/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>Hello World</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div id="disqus_thread"></div><script>var unused = null;
+var disqus_config = function () {
+  this.page.url = 'http://blog.neo-cloud.cn/2020/03/02/API/';
+  this.page.identifier = '2020/03/02/API/';
+  this.page.title = '接口文档示例';
+}
+var d = document, s = d.createElement('script');
+s.src = "https://" + '' +".disqus.com/embed.js";
+s.setAttribute('data-timestamp', '' + +new Date());
+(d.head || d.body).appendChild(s);</script></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By neo</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">©2019 - 2020 By neo Power by Hexo|Theme Butterfly</div><div class="icp"><a href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"><span>桂ICP备16007833号</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/canvas-nest.js"></script><script src="https://cdn.jsdelivr.net/npm/activate-power-mode/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true; 
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
